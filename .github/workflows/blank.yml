@@ -15,3 +15,11 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+  
+  publish:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Run a one-line script
+      run: echo Hello, world!
