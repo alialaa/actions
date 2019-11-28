@@ -1,6 +1,8 @@
 name: Dispatch
 
 on:
+  pull_request:
+    types: ['opened']
   repository_dispatch:
     types: 'build'
 
