@@ -1,0 +1,14 @@
+name: Dispatch
+
+on:
+  repository_dispatch:
+    types: 'build'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: echo Building!
