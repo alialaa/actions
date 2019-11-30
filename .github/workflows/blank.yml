@@ -11,7 +11,7 @@ jobs:
     - name: Slack
       uses: docker://technosophos/slack-notify
       env:
-        SLACK_WEBHOOK: https://hooks.slack.com/services/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
+        SLACK_WEBHOOK: https://hooks.slack.com/services/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
         SLACK_MESSAGE: "Hello slack"
     - name: My first step
       uses: docker://alpine:3.8
