@@ -11,7 +11,7 @@ jobs:
     - name: My first step
       uses: docker://alpine:3.8
       with: 
-        entrypoint: ../somescript
+        entrypoint: ./somescript
     - name: Run a one-line script
       run: echo Hello, world!
     - name: Fail
