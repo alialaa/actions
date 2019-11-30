@@ -11,7 +11,7 @@ jobs:
     - name: My first step
       uses: docker://alpine:3.8
       with: 
-        entrypoint: ./somescript
+        entrypoint: somescript.sh
     - name: Run a one-line script
       run: echo Hello, world!
     - name: Fail
@@ -21,26 +21,26 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
 
-  decrypt:
+  # decrypt:
 
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Decrypt large secret
-        run: ./.github/scripts/decrypt_secret.sh
-        env:
-          LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
-      # This command is just an example to show your secret being printed
-      # Ensure you remove any print statements of your secrets. GitHub does
-      # not hide secrets that use this workaround.
-      - name: Test printing your secret (Remove this step in production)
-        run: cat $HOME/secrets/my_secret.json
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - name: Decrypt large secret
+  #       run: ./.github/scripts/decrypt_secret.sh
+  #       env:
+  #         LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
+  #     # This command is just an example to show your secret being printed
+  #     # Ensure you remove any print statements of your secrets. GitHub does
+  #     # not hide secrets that use this workaround.
+  #     - name: Test printing your secret (Remove this step in production)
+  #       run: cat $HOME/secrets/my_secret.json
   
-  publish:
-    needs: ['build']
+  # publish:
+  #   needs: ['build']
 
-    runs-on: windows-latest
+  #   runs-on: windows-latest
 
-    steps:
-    - name: Run a one-line script
-      run: echo Hello, world!
+  #   steps:
+  #   - name: Run a one-line script
+  #     run: echo Hello, world!
