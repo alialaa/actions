@@ -5,8 +5,8 @@ on: [push]
 jobs:
   docker: 
     runs-on: ubuntu-latest
-    container:
-      image: node:latest
+    # container:
+    #   image: node:latest
       # env:
       #   NODE_ENV: development
       # ports:
