@@ -26,4 +26,6 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v1
             - name: Lost After checkout
-              run: ls
+              run: |
+                ls
+                cat yml.yml
