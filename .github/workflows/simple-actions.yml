@@ -25,7 +25,12 @@ jobs:
                 ls
             - name: Checkout
               uses: actions/checkout@v1
+              # with: 
+              #   ref: 'develop'
+              #   fetch-depth: ''
+              #   token: ''
             - name: Lost After checkout
               run: |
                 ls
                 cat yml.yml
+                
