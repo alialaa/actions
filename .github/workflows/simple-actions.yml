@@ -1,9 +1,10 @@
 name: Actions
 
-on: 
-  schedule:
-    - cron: "0/5 * * * *"
-    - cron: "0/6 * * * *"
+on: pull_request
+# on: 
+  # schedule:
+    # - cron: "0/5 * * * *"
+    # - cron: "0/6 * * * *"
 
 jobs:
     run-github-actions: 
