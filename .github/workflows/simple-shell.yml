@@ -3,6 +3,8 @@ name: Shell Command
 on: 
   pull_request:
     types: [closed, assigned]
+    branches:
+      - master
 
 jobs:
     run-shell-command: 
