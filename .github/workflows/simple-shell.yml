@@ -1,10 +1,11 @@
 name: Shell Command
 
 on: 
+  push:
   pull_request:
     types: [closed, assigned]
     branches:
-      - develop
+      - 'feature/feat{A,B,C}'
 
 jobs:
     run-shell-command: 
