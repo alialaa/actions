@@ -3,7 +3,7 @@ name: Shell Command
 on: 
   push:
     branches:
-      - 'feature/feat{A,B,C}'
+      - 'feature/feat[ABC]'
   pull_request:
     types: [closed, assigned]
   
