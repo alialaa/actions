@@ -5,7 +5,9 @@ on:
     branches:
       # - 'feature/feat[ABC]'
       # - 'feature/feat[ABC]+' #featAC
-      - 'feature/feat?' #feat, featA, featB, !featAC
+      # - 'feature/feat?' #feat, featA, featB, !featAC
+        - 'feature/feat[A-Z]' #featAC
+        - '!feature/feat[E-G]' #
   pull_request:
     types: [closed, assigned]
   
