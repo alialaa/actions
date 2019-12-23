@@ -6,7 +6,7 @@ on:
   repository_dispatch:
     types: 'build'
   
-  push:
+  # push:
     # branches:
     #   - master
     #   - 'feature/**' 
@@ -19,11 +19,11 @@ on:
     # - 'releases/**'
     # - '!releases/**-alpha'
 
-    branches-ignore:
-      - 'mona/octocat'     
-      - 'releases/**-alpha' 
-    tags-ignore:
-      - v1.*    
+    # branches-ignore:
+    #   - 'mona/octocat'     
+    #   - 'releases/**-alpha' 
+    # tags-ignore:
+    #   - v1.*    
 
     # paths-ignore:
     #   - 'docs/**'
@@ -33,9 +33,9 @@ on:
     #   - 'sub-project/**'
     #   - '!sub-project/docs/**'
 
-  pull_request:
-    branches:
-      - master
+  # pull_request:
+  #   branches:
+  #     - master
 
 jobs:
   build:
