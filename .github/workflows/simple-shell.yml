@@ -3,7 +3,11 @@ name: Shell Command
 on: 
   push:
     branches:
-      - 'feature/feat[ABC]'
+      # - 'feature/feat[ABC]'
+      # - 'feature/feat[ABC]+' #featAC
+      # - 'feature/feat?' #feat, featA, featB, !featAC
+      - 'feature/feat[A-Z]'
+      - '!feature/feat[E-G]'
   pull_request:
     types: [closed, assigned]
   
