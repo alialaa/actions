@@ -18,7 +18,7 @@ array:
   - {hello: world}
 array2: [item1, item2, 3, {hello: world}]
 array3:
-  - name: Alis
+  - name: Aliss
     other: 2
   - name: John
     key: value
