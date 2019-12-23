@@ -4,7 +4,8 @@ on:
   push:
     branches:
       # - 'feature/feat[ABC]'
-      - 'feature/feat[ABC]+' #featAC
+      # - 'feature/feat[ABC]+' #featAC
+      - 'feature/feat?' #feat, featA, featB, !featAC
   pull_request:
     types: [closed, assigned]
   
