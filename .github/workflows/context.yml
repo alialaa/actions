@@ -9,7 +9,8 @@ jobs:
     if: cancelled()
     runs-on: ubuntu-16.04
     steps:
-      - run: echo 'WF Cancelled'
+      - name: echo
+        run: echo 'WF Cancelled'
   one:
     if: github.event_name == 'push'
     runs-on: ubuntu-16.04
