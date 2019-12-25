@@ -8,8 +8,15 @@ jobs:
   functions:
     runs-on: ubuntu-16.04
     steps:
-      - name: contains
-        run: echo ${{ contains( 'hello', 'll' ) }}
+      - name: dump
+     
+        run: |
+          echo ${{ contains( 'hello', 'll' ) }}
+          echo ${{ startsWith( 'hello', 'he' ) }}
+          echo ${{ endsWith( 'hello', 'lo' ) }}
+          echo ${{ format('Hello {0} {1} {2}', 'World', '!', '!') }}
+          echo ${{ join(['Hello', 'world'], '!') }}
+       # hashFiles
   one:
     if: github.event_name == 'push'
     runs-on: ubuntu-16.04
