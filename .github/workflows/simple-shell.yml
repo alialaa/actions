@@ -3,11 +3,14 @@ name: Shell Command
 on: 
   push:
     branches:
+      # - master
       # - 'feature/feat[ABC]'
       # - 'feature/feat[ABC]+' #featAC
       # - 'feature/feat?' #feat, featA, featB, !featAC
       - 'feature/feat[A-Z]'
       - '!feature/feat[E-G]'
+    paths:
+      - null
   pull_request:
     types: [closed, assigned]
   

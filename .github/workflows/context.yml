@@ -1,0 +1,15 @@
+name: Context
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+    run-shell-command: 
+        runs-on: ubuntu-latest
+        steps:
+          - name: ENV Variables
+            run: |
+              echo "HOME: ${HOME}"
+              echo "GITHUB_WORKFLOW: ${GITHUB_WORKFLOW}"
