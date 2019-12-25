@@ -15,7 +15,7 @@ jobs:
           echo ${{ startsWith( 'hello', 'he' ) }}
           echo ${{ endsWith( 'hello', 'lo' ) }}
           echo ${{ format('Hello {0} {1} {2}', 'World', '!', '!') }}
-          echo ${{ join('Hello', 'world', '!') }}
+          echo ${{ join("['Hello', 'world']", '!') }}
        # hashFiles
   one:
     if: github.event_name == 'push'
