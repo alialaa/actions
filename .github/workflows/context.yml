@@ -5,9 +5,13 @@ on: [push, pull_request]
 
 
 jobs:
-  one:
-    # if: github.event_name == 'push'
+  cancelled:
     if: cancelled()
+    runs-on: ubuntu-16.04
+    steps:
+      - run: echo 'WF Cancelled'
+  one:
+    if: github.event_name == 'push'
     runs-on: ubuntu-16.04
     steps:
       - name: Dump GitHub context
