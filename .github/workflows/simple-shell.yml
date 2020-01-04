@@ -9,8 +9,6 @@ on:
       # - 'feature/feat?' #feat, featA, featB, !featAC
       - 'feature/feat[A-Z]'
       - '!feature/feat[E-G]'
-    paths:
-      - null
   pull_request:
     types: [closed, assigned]
   
