@@ -25,7 +25,7 @@ jobs:
         include:
           - os: ubuntu-latest
             node_version: 8
-            is_6_windows: "true"
+            is_6_ubuntu: "true"
         exclude:
           - os: ubuntu-latest
             node_version: 6
