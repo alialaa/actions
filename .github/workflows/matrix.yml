@@ -18,12 +18,12 @@ jobs:
   node-version:
     strategy:
       fail-fast: true
-      max-parallel: 2
+      # max-parallel: 2
       matrix:
         os: [macos-latest, windows-latest, ubuntu-latest]
         node_version: [6, 8, 10]
         include:
-          - os: windows-latest
+          - os: ubuntu-latest
             node_version: 6
             is_6_windows: "true"
         exclude:
@@ -34,7 +34,7 @@ jobs:
     # runs-on: ubuntu-16.04
     runs-on: ${{ matrix.os }}
     env: 
-      IS_NODE6_WINDOWS: ${{ matrix.is_6_windows }}
+      IS_NODE6_UBUNTU: ${{ matrix.is_6_ubuntu }}
     steps:
       - name: Log Node Version
         run: node -v
@@ -44,4 +44,4 @@ jobs:
       - name: Log Node Version
         run: |
           node -v
-          echo $IS_NODE6_WINDOWS
+          echo $IS_NODE6_UBUNTU
