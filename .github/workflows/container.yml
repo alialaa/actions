@@ -24,6 +24,7 @@ jobs:
 
   docker-services: 
     runs-on: ubuntu-latest
+    container: node:13.5.0-alpine3.10
     services:
       app: 
         image: alialaa17/node-api
@@ -35,7 +36,7 @@ jobs:
           - "27017:27017"
     steps:
       - name: Post a User
-        run: "curl -X POST http://localhost:3001/api/user -H 'Content-Type: application/json' -d '{\"username\": \"hello\",\"address\": \"dwded\"}'"
+        run: "curl -X POST http://app:3001/api/user -H 'Content-Type: application/json' -d '{\"username\": \"hello\",\"address\": \"dwded\"}'"
       - name: Get Users
-        run: curl localhost:3001/api/users
+        run: curl http://app:3001/api/users
      
