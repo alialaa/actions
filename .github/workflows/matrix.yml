@@ -23,8 +23,9 @@ jobs:
         os: [macos-latest, windows-latest, ubuntu-latest]
         node_version: [6, 8, 10]
         include:
-          - os: ubuntu-latest
-            node_version: 4
+          - os: windows-latest
+            node_version: 6
+            is_6_windows: "true"
         exclude:
           - os: ubuntu-latest
             node_version: 6
@@ -32,11 +33,16 @@ jobs:
             node_version: 8
     # runs-on: ubuntu-16.04
     runs-on: ${{ matrix.os }}
+    env: 
+      IS_NODE6_WINDOWS: ${{ matrix.is_6_windows }}
     steps:
       - name: Log Node Version
         run: node -v
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node_version }}
+          n
       - name: Log Node Version
-        run: node -v
+        run: |
+          node -v
+          echo $IS_NODE6_WINDOWS
