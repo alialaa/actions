@@ -56,9 +56,15 @@ jobs:
         with:
           entrypoint: /usr/local/bin/node
           args: -v
+      - uses: actions/checkout@v1
       - name: Executable scrupt
         uses: docker://alpine:3.8
         with: 
           entrypoint: ./somescript.sh
           args: 'Hello'
+      - name: Slack
+        uses: docker://technosophos/slack-notify
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_MESSAGE: "Hello slack"
      
