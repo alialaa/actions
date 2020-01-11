@@ -1,0 +1,40 @@
+name: Actions
+
+on: pull_request
+# on: 
+  # schedule:
+    # - cron: "0/5 * * * *"
+    # - cron: "0/6 * * * *"
+
+jobs:
+    run-github-actions: 
+        runs-on: ubuntu-latest
+        steps:
+            # - name: Simple JS
+            #   id: greet
+            #   uses: actions/hello-world-javascript-action@v1 #discuss @master, @v1.1, @sha
+            #   with:
+            #       who-to-greet: John
+            # - name: Log greeting time
+            #   run: echo "${{ steps.greet.outputs.time }}"
+            - name: Log Env variables
+              run: |
+                echo $GITHUB_SHA
+                echo $GITHUB_REPOSITORY
+                echo $GITHUB_WORKSPACE
+                echo "${{ github.token }}"
+                # git clone git@github.com:$GITHUB_REPOSITORY.git
+                # git checkout $GITHUB_SHA
+                pwd
+                ls
+            - name: Checkout
+              uses: actions/checkout@v1
+              # with: 
+              #   ref: 'develop'
+              #   fetch-depth: ''
+              #   token: ''
+            - name: Lost After checkout
+              run: |
+                ls
+                cat yml.yml
+                

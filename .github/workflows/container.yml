@@ -1,0 +1,70 @@
+name: Container
+
+on: [ push ]
+
+jobs:
+  node-docker:
+    runs-on: ubuntu-latest
+    container: node:13.5.0-alpine3.10
+    # container:
+    #   image: node:latest
+    #   env:
+    #     NODE_ENV: development
+    #   ports:
+    #     - 80
+    #   volumes:
+    #     - my_docker_volume:/volume_mount
+    #   options: --cpus 1 --hostname
+    steps:
+      - name: Log node version
+        # sibling container
+        run: |
+          node -v
+          cat /etc/os-release
+
+  docker-services: 
+    runs-on: ubuntu-latest
+    services:
+      app: 
+        image: alialaa17/node-api
+        ports:
+          - 3001:3000
+      mongo:
+        image: mongo
+        ports:
+          - "27017:27017"
+    steps:
+      - name: Post a User
+        run: "curl -X POST http://localhost:3001/api/user -H 'Content-Type: application/json' -d '{\"username\": \"hello\",\"address\": \"dwded\"}'"
+      - name: Get Users
+        run: curl localhost:3001/api/users
+
+  docker-steps:
+    runs-on: ubuntu-latest
+    container: node:10.18.0-jessie
+    steps:
+      - name: Log node version
+        run: node -v
+        # type -a node
+      - name: Step with docker echo
+        uses: docker://node:12.14.0-alpine3.9
+        with:
+          entrypoint: /bin/echo
+          args: Hello World
+      - name: Step with docker
+        uses: docker://node:12.14.0-alpine3.9
+        with:
+          entrypoint: /usr/local/bin/node
+          args: -v
+      - uses: actions/checkout@v1
+      - name: Executable scrupt
+        uses: docker://alpine:3.8
+        with: 
+          entrypoint: ./somescript.sh
+          args: 'Hello'
+      - name: Slack
+        uses: docker://technosophos/slack-notify
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_MESSAGE: "Hello slack"
+     

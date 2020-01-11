@@ -5,6 +5,37 @@ on:
     types: ['opened']
   repository_dispatch:
     types: 'build'
+  
+  # push:
+    # branches:
+    #   - master
+    #   - 'feature/**' 
+    #   - 'feature/*'
+    # tags:        
+    #   - v1             # Push events to v1 tag
+    #   - v1.*  
+
+    # branches:    
+    # - 'releases/**'
+    # - '!releases/**-alpha'
+
+    # branches-ignore:
+    #   - 'mona/octocat'     
+    #   - 'releases/**-alpha' 
+    # tags-ignore:
+    #   - v1.*    
+
+    # paths-ignore:
+    #   - 'docs/**'
+    # paths:
+    #   - '**.js'
+    # paths:
+    #   - 'sub-project/**'
+    #   - '!sub-project/docs/**'
+
+  # pull_request:
+  #   branches:
+  #     - master
 
 jobs:
   build:
@@ -13,4 +44,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run a one-line script
-      run: echo Building!
+      run: echo ${{ github.event.client_payload.env }}
